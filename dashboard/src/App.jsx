@@ -105,6 +105,8 @@ function Live({ live }) {
   const plan = get(live, 'plan', {})
   const guard = get(ex, 'guardrails', {})
   const status = text(mon.loop_status)
+  const curve = get(live, 'series.equity_curve', [])
+  const lastSnapshot = curve.length ? curve[curve.length - 1].date : null
   const guardRows = [
     ['Max order value', num(guard.max_order_value, 0)],
     ['Max day turnover', num(guard.max_day_turnover, 0)],
