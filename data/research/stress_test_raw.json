@@ -1,0 +1,947 @@
+{
+  "us_covid": {
+    "total_return": 12.78,
+    "max_drawdown": -25.89,
+    "sharpe": 0.79,
+    "volatility": 41.36,
+    "final_value": 112778,
+    "dd_period": "2020-02-20 to 2020-03-24",
+    "regime_timeline": [
+      {
+        "date": "2020-01-02",
+        "regime": "risk_on",
+        "confidence": 0.57,
+        "details": {
+          "vix": 12.5,
+          "gold_1m": 3.5,
+          "oil_1m": 8.9,
+          "yield_change": 0.17,
+          "scores": {
+            "risk_on": 4,
+            "risk_off": 3,
+            "crisis": 0
+          }
+        }
+      },
+      {
+        "date": "2020-02-03",
+        "regime": "risk_on",
+        "confidence": 0.8,
+        "details": {
+          "vix": 18.0,
+          "gold_1m": 1.7,
+          "oil_1m": -20.4,
+          "yield_change": -0.27,
+          "scores": {
+            "risk_on": 4,
+            "risk_off": 0,
+            "crisis": 1
+          }
+        }
+      },
+      {
+        "date": "2020-03-04",
+        "regime": "crisis",
+        "confidence": 0.62,
+        "details": {
+          "vix": 32.0,
+          "gold_1m": 5.3,
+          "oil_1m": -5.6,
+          "yield_change": -0.61,
+          "scores": {
+            "risk_on": 2,
+            "risk_off": 1,
+            "crisis": 5
+          }
+        }
+      },
+      {
+        "date": "2020-04-02",
+        "regime": "crisis",
+        "confidence": 0.67,
+        "details": {
+          "vix": 50.9,
+          "gold_1m": -3.5,
+          "oil_1m": -46.8,
+          "yield_change": -0.3,
+          "scores": {
+            "risk_on": 2,
+            "risk_off": 0,
+            "crisis": 4
+          }
+        }
+      },
+      {
+        "date": "2020-05-04",
+        "regime": "crisis",
+        "confidence": 0.71,
+        "details": {
+          "vix": 36.0,
+          "gold_1m": 5.0,
+          "oil_1m": -58.3,
+          "yield_change": 0.05,
+          "scores": {
+            "risk_on": 2,
+            "risk_off": 0,
+            "crisis": 5
+          }
+        }
+      },
+      {
+        "date": "2020-06-03",
+        "regime": "risk_off",
+        "confidence": 0.38,
+        "details": {
+          "vix": 25.7,
+          "gold_1m": -0.9,
+          "oil_1m": 26.1,
+          "yield_change": 0.1,
+          "scores": {
+            "risk_on": 2,
+            "risk_off": 3,
+            "crisis": 3
+          }
+        }
+      }
+    ],
+    "emergency_timeline": [
+      {
+        "date": "2020-01-02",
+        "fired": []
+      },
+      {
+        "date": "2020-02-03",
+        "fired": []
+      },
+      {
+        "date": "2020-03-04",
+        "fired": [
+          "Regime = CRISIS"
+        ]
+      },
+      {
+        "date": "2020-04-02",
+        "fired": [
+          "VIX at 50.9 > 40",
+          "Regime = CRISIS"
+        ]
+      },
+      {
+        "date": "2020-05-04",
+        "fired": [
+          "Regime = CRISIS"
+        ]
+      },
+      {
+        "date": "2020-06-03",
+        "fired": []
+      }
+    ],
+    "crash_buy_dates": [
+      "2020-03-04",
+      "2020-04-02",
+      "2020-05-04"
+    ],
+    "n_emergency_triggers": 3,
+    "weights_timeline": [
+      {
+        "date": "2020-01-02",
+        "weights": {
+          "AAPL": 0.0794,
+          "GOOGL": 0.1164,
+          "AMZN": 0.0289,
+          "NVDA": 0.0818,
+          "JNJ": 0.1729,
+          "KO": 0.1734,
+          "BRK-B": 0.1511,
+          "COST": 0.1049,
+          "MSFT": 0.0912
+        }
+      },
+      {
+        "date": "2020-02-03",
+        "weights": {
+          "AAPL": 0.1201,
+          "GOOGL": 0.078,
+          "AMZN": 0.0208,
+          "NVDA": 0.0833,
+          "JNJ": 0.13,
+          "KO": 0.1394,
+          "BRK-B": 0.1373,
+          "COST": 0.1612,
+          "MSFT": 0.1297
+        }
+      },
+      {
+        "date": "2020-03-04",
+        "weights": {
+          "AAPL": 0.1013,
+          "GOOGL": 0.0771,
+          "AMZN": 0.101,
+          "NVDA": 0.0914,
+          "JNJ": 0.1129,
+          "KO": 0.1618,
+          "BRK-B": 0.0844,
+          "COST": 0.1426,
+          "MSFT": 0.1275
+        }
+      },
+      {
+        "date": "2020-04-02",
+        "weights": {
+          "AAPL": 0.1261,
+          "GOOGL": 0.0711,
+          "AMZN": 0.1702,
+          "NVDA": 0.1158,
+          "JNJ": 0.105,
+          "KO": 0.1144,
+          "BRK-B": 0.0337,
+          "COST": 0.1568,
+          "MSFT": 0.107
+        }
+      },
+      {
+        "date": "2020-05-04",
+        "weights": {
+          "AAPL": 0.1008,
+          "GOOGL": 0.0849,
+          "AMZN": 0.1297,
+          "NVDA": 0.1127,
+          "JNJ": 0.1353,
+          "KO": 0.0851,
+          "BRK-B": 0.067,
+          "COST": 0.1851,
+          "MSFT": 0.0994
+        }
+      },
+      {
+        "date": "2020-06-03",
+        "weights": {
+          "AAPL": 0.1005,
+          "GOOGL": 0.097,
+          "AMZN": 0.156,
+          "NVDA": 0.1074,
+          "JNJ": 0.1382,
+          "KO": 0.0823,
+          "BRK-B": 0.0648,
+          "COST": 0.1585,
+          "MSFT": 0.0952
+        }
+      }
+    ],
+    "benchmark": {
+      "return": -4.08,
+      "max_dd": -33.99
+    },
+    "n_rebalances": 6
+  },
+  "us_2022": {
+    "total_return": -13.36,
+    "max_drawdown": -22.35,
+    "sharpe": -0.55,
+    "volatility": 21.73,
+    "final_value": 86636,
+    "dd_period": "2022-03-31 to 2022-10-11",
+    "regime_timeline": [
+      {
+        "date": "2022-01-03",
+        "regime": "risk_on",
+        "confidence": 0.57,
+        "details": {
+          "vix": 16.6,
+          "gold_1m": 1.0,
+          "oil_1m": 14.2,
+          "yield_change": 0.28,
+          "scores": {
+            "risk_on": 4,
+            "risk_off": 1,
+            "crisis": 2
+          }
+        }
+      },
+      {
+        "date": "2022-02-02",
+        "regime": "risk_on",
+        "confidence": 0.33,
+        "details": {
+          "vix": 22.1,
+          "gold_1m": -0.4,
+          "oil_1m": 12.5,
+          "yield_change": 0.1,
+          "scores": {
+            "risk_on": 2,
+            "risk_off": 2,
+            "crisis": 2
+          }
+        }
+      },
+      {
+        "date": "2022-03-04",
+        "regime": "crisis",
+        "confidence": 0.88,
+        "details": {
+          "vix": 32.0,
+          "gold_1m": 8.9,
+          "oil_1m": 25.1,
+          "yield_change": -0.1,
+          "scores": {
+            "risk_on": 0,
+            "risk_off": 1,
+            "crisis": 7
+          }
+        }
+      },
+      {
+        "date": "2022-04-04",
+        "regime": "risk_on",
+        "confidence": 0.71,
+        "details": {
+          "vix": 18.6,
+          "gold_1m": -3.2,
+          "oil_1m": -6.7,
+          "yield_change": 0.66,
+          "scores": {
+            "risk_on": 5,
+            "risk_off": 2,
+            "crisis": 0
+          }
+        }
+      },
+      {
+        "date": "2022-05-04",
+        "regime": "risk_off",
+        "confidence": 0.62,
+        "details": {
+          "vix": 25.4,
+          "gold_1m": -1.9,
+          "oil_1m": 7.2,
+          "yield_change": 0.36,
+          "scores": {
+            "risk_on": 2,
+            "risk_off": 5,
+            "crisis": 1
+          }
+        }
+      },
+      {
+        "date": "2022-06-03",
+        "regime": "risk_on",
+        "confidence": 0.33,
+        "details": {
+          "vix": 24.8,
+          "gold_1m": -1.5,
+          "oil_1m": 11.2,
+          "yield_change": -0.11,
+          "scores": {
+            "risk_on": 2,
+            "risk_off": 2,
+            "crisis": 2
+          }
+        }
+      },
+      {
+        "date": "2022-07-06",
+        "regime": "risk_on",
+        "confidence": 0.5,
+        "details": {
+          "vix": 26.7,
+          "gold_1m": -5.6,
+          "oil_1m": -16.7,
+          "yield_change": -0.12,
+          "scores": {
+            "risk_on": 3,
+            "risk_off": 2,
+            "crisis": 1
+          }
+        }
+      },
+      {
+        "date": "2022-08-04",
+        "regime": "risk_on",
+        "confidence": 0.5,
+        "details": {
+          "vix": 21.4,
+          "gold_1m": 3.0,
+          "oil_1m": -6.6,
+          "yield_change": -0.33,
+          "scores": {
+            "risk_on": 3,
+            "risk_off": 3,
+            "crisis": 0
+          }
+        }
+      },
+      {
+        "date": "2022-09-02",
+        "regime": "risk_off",
+        "confidence": 0.71,
+        "details": {
+          "vix": 25.5,
+          "gold_1m": -3.6,
+          "oil_1m": -0.2,
+          "yield_change": 0.35,
+          "scores": {
+            "risk_on": 1,
+            "risk_off": 5,
+            "crisis": 1
+          }
+        }
+      },
+      {
+        "date": "2022-10-04",
+        "regime": "risk_off",
+        "confidence": 0.67,
+        "details": {
+          "vix": 29.1,
+          "gold_1m": 1.5,
+          "oil_1m": -1.6,
+          "yield_change": 0.28,
+          "scores": {
+            "risk_on": 1,
+            "risk_off": 4,
+            "crisis": 1
+          }
+        }
+      },
+      {
+        "date": "2022-11-02",
+        "regime": "risk_off",
+        "confidence": 0.5,
+        "details": {
+          "vix": 25.9,
+          "gold_1m": -4.6,
+          "oil_1m": 3.0,
+          "yield_change": 0.3,
+          "scores": {
+            "risk_on": 2,
+            "risk_off": 3,
+            "crisis": 1
+          }
+        }
+      },
+      {
+        "date": "2022-12-02",
+        "regime": "risk_on",
+        "confidence": 0.67,
+        "details": {
+          "vix": 19.1,
+          "gold_1m": 10.2,
+          "oil_1m": -4.7,
+          "yield_change": -0.62,
+          "scores": {
+            "risk_on": 4,
+            "risk_off": 0,
+            "crisis": 2
+          }
+        }
+      }
+    ],
+    "emergency_timeline": [
+      {
+        "date": "2022-01-03",
+        "fired": []
+      },
+      {
+        "date": "2022-02-02",
+        "fired": []
+      },
+      {
+        "date": "2022-03-04",
+        "fired": [
+          "Regime = CRISIS"
+        ]
+      },
+      {
+        "date": "2022-04-04",
+        "fired": []
+      },
+      {
+        "date": "2022-05-04",
+        "fired": []
+      },
+      {
+        "date": "2022-06-03",
+        "fired": []
+      },
+      {
+        "date": "2022-07-06",
+        "fired": []
+      },
+      {
+        "date": "2022-08-04",
+        "fired": []
+      },
+      {
+        "date": "2022-09-02",
+        "fired": []
+      },
+      {
+        "date": "2022-10-04",
+        "fired": []
+      },
+      {
+        "date": "2022-11-02",
+        "fired": []
+      },
+      {
+        "date": "2022-12-02",
+        "fired": []
+      }
+    ],
+    "crash_buy_dates": [
+      "2022-03-04"
+    ],
+    "n_emergency_triggers": 1,
+    "weights_timeline": [
+      {
+        "date": "2022-01-03",
+        "weights": {
+          "AAPL": 0.096,
+          "GOOGL": 0.105,
+          "AMZN": 0.0325,
+          "NVDA": 0.0792,
+          "JNJ": 0.1672,
+          "KO": 0.1398,
+          "BRK-B": 0.1357,
+          "COST": 0.1285,
+          "MSFT": 0.1161
+        }
+      },
+      {
+        "date": "2022-02-02",
+        "weights": {
+          "AAPL": 0.0838,
+          "GOOGL": 0.1105,
+          "AMZN": 0.0325,
+          "NVDA": 0.0628,
+          "JNJ": 0.1798,
+          "KO": 0.1663,
+          "BRK-B": 0.1584,
+          "COST": 0.11,
+          "MSFT": 0.0959
+        }
+      },
+      {
+        "date": "2022-03-04",
+        "weights": {
+          "AAPL": 0.1006,
+          "GOOGL": 0.0611,
+          "AMZN": 0.0256,
+          "NVDA": 0.0739,
+          "JNJ": 0.1744,
+          "KO": 0.1608,
+          "BRK-B": 0.1563,
+          "COST": 0.1467,
+          "MSFT": 0.1007
+        }
+      },
+      {
+        "date": "2022-04-04",
+        "weights": {
+          "AAPL": 0.1047,
+          "GOOGL": 0.0774,
+          "AMZN": 0.0249,
+          "NVDA": 0.0841,
+          "JNJ": 0.1671,
+          "KO": 0.1441,
+          "BRK-B": 0.158,
+          "COST": 0.1505,
+          "MSFT": 0.0892
+        }
+      },
+      {
+        "date": "2022-05-04",
+        "weights": {
+          "AAPL": 0.0934,
+          "GOOGL": 0.0414,
+          "AMZN": 0.0205,
+          "NVDA": 0.0344,
+          "JNJ": 0.2165,
+          "KO": 0.2038,
+          "BRK-B": 0.1761,
+          "COST": 0.1676,
+          "MSFT": 0.0464
+        }
+      },
+      {
+        "date": "2022-06-03",
+        "weights": {
+          "AAPL": 0.1043,
+          "GOOGL": 0.0511,
+          "AMZN": 0.02,
+          "NVDA": 0.0281,
+          "JNJ": 0.2392,
+          "KO": 0.1957,
+          "BRK-B": 0.1696,
+          "COST": 0.1192,
+          "MSFT": 0.0729
+        }
+      },
+      {
+        "date": "2022-07-06",
+        "weights": {
+          "AAPL": 0.0834,
+          "GOOGL": 0.0581,
+          "AMZN": 0.0201,
+          "NVDA": 0.0217,
+          "JNJ": 0.2759,
+          "KO": 0.2203,
+          "BRK-B": 0.1183,
+          "COST": 0.1288,
+          "MSFT": 0.0733
+        }
+      },
+      {
+        "date": "2022-08-04",
+        "weights": {
+          "AAPL": 0.1265,
+          "GOOGL": 0.0478,
+          "AMZN": 0.02,
+          "NVDA": 0.028,
+          "JNJ": 0.1754,
+          "KO": 0.2107,
+          "BRK-B": 0.1778,
+          "COST": 0.1418,
+          "MSFT": 0.072
+        }
+      },
+      {
+        "date": "2022-09-02",
+        "weights": {
+          "AAPL": 0.1094,
+          "GOOGL": 0.0367,
+          "AMZN": 0.0637,
+          "NVDA": 0.0198,
+          "JNJ": 0.2178,
+          "KO": 0.194,
+          "BRK-B": 0.1086,
+          "COST": 0.1754,
+          "MSFT": 0.0746
+        }
+      },
+      {
+        "date": "2022-10-04",
+        "weights": {
+          "AAPL": 0.1176,
+          "GOOGL": 0.0268,
+          "AMZN": 0.0443,
+          "NVDA": 0.02,
+          "JNJ": 0.2283,
+          "KO": 0.2013,
+          "BRK-B": 0.1097,
+          "COST": 0.1674,
+          "MSFT": 0.0847
+        }
+      },
+      {
+        "date": "2022-11-02",
+        "weights": {
+          "AAPL": 0.0877,
+          "GOOGL": 0.0265,
+          "AMZN": 0.037,
+          "NVDA": 0.0555,
+          "JNJ": 0.3204,
+          "KO": 0.1542,
+          "BRK-B": 0.1349,
+          "COST": 0.1281,
+          "MSFT": 0.0557
+        }
+      },
+      {
+        "date": "2022-12-02",
+        "weights": {
+          "AAPL": 0.0765,
+          "GOOGL": 0.0444,
+          "AMZN": 0.0199,
+          "NVDA": 0.0335,
+          "JNJ": 0.2436,
+          "KO": 0.2174,
+          "BRK-B": 0.1842,
+          "COST": 0.1267,
+          "MSFT": 0.0539
+        }
+      }
+    ],
+    "benchmark": {
+      "return": -18.67,
+      "max_dd": -24.52
+    },
+    "n_rebalances": 12
+  },
+  "india_covid": {
+    "total_return": -11.78,
+    "max_drawdown": -35.8,
+    "sharpe": -0.47,
+    "volatility": 39.05,
+    "final_value": 882204,
+    "dd_period": "2020-02-14 to 2020-03-24",
+    "regime_timeline": [
+      {
+        "date": "2020-01-02",
+        "regime": "risk_on",
+        "confidence": 0.0,
+        "details": {
+          "scores": {
+            "risk_on": 0,
+            "risk_off": 0,
+            "crisis": 0
+          }
+        }
+      },
+      {
+        "date": "2020-01-31",
+        "regime": "risk_on",
+        "confidence": 0.0,
+        "details": {
+          "scores": {
+            "risk_on": 0,
+            "risk_off": 0,
+            "crisis": 0
+          }
+        }
+      },
+      {
+        "date": "2020-03-03",
+        "regime": "risk_on",
+        "confidence": 0.0,
+        "details": {
+          "scores": {
+            "risk_on": 0,
+            "risk_off": 0,
+            "crisis": 0
+          }
+        }
+      },
+      {
+        "date": "2020-04-03",
+        "regime": "risk_on",
+        "confidence": 0.0,
+        "details": {
+          "scores": {
+            "risk_on": 0,
+            "risk_off": 0,
+            "crisis": 0
+          }
+        }
+      },
+      {
+        "date": "2020-05-08",
+        "regime": "risk_on",
+        "confidence": 0.0,
+        "details": {
+          "scores": {
+            "risk_on": 0,
+            "risk_off": 0,
+            "crisis": 0
+          }
+        }
+      },
+      {
+        "date": "2020-06-09",
+        "regime": "risk_on",
+        "confidence": 0.0,
+        "details": {
+          "scores": {
+            "risk_on": 0,
+            "risk_off": 0,
+            "crisis": 0
+          }
+        }
+      }
+    ],
+    "emergency_timeline": [
+      {
+        "date": "2020-01-02",
+        "fired": []
+      },
+      {
+        "date": "2020-01-31",
+        "fired": []
+      },
+      {
+        "date": "2020-03-03",
+        "fired": []
+      },
+      {
+        "date": "2020-04-03",
+        "fired": [
+          "ICICIBANK.NS dropped -7.9%",
+          "SBIN.NS dropped -5.9%",
+          "MARUTI.NS dropped -5.5%",
+          "WIPRO.NS dropped -5.0%",
+          "AXISBANK.NS dropped -9.3%",
+          "TITAN.NS dropped -7.8%"
+        ]
+      },
+      {
+        "date": "2020-05-08",
+        "fired": []
+      },
+      {
+        "date": "2020-06-09",
+        "fired": []
+      }
+    ],
+    "crash_buy_dates": [
+      "2020-04-03"
+    ],
+    "n_emergency_triggers": 1,
+    "weights_timeline": [
+      {
+        "date": "2020-01-02",
+        "weights": {
+          "RELIANCE.NS": 0.0584,
+          "TCS.NS": 0.069,
+          "INFY.NS": 0.0396,
+          "HDFCBANK.NS": 0.0532,
+          "ICICIBANK.NS": 0.0404,
+          "BHARTIARTL.NS": 0.0568,
+          "ITC.NS": 0.0541,
+          "HINDUNILVR.NS": 0.0676,
+          "LT.NS": 0.0171,
+          "SBIN.NS": 0.0375,
+          "BAJFINANCE.NS": 0.0394,
+          "MARUTI.NS": 0.0444,
+          "HCLTECH.NS": 0.0692,
+          "SUNPHARMA.NS": 0.0615,
+          "NTPC.NS": 0.0538,
+          "WIPRO.NS": 0.0469,
+          "ADANIENT.NS": 0.0392,
+          "KOTAKBANK.NS": 0.0557,
+          "AXISBANK.NS": 0.0455,
+          "TITAN.NS": 0.0507
+        }
+      },
+      {
+        "date": "2020-01-31",
+        "weights": {
+          "RELIANCE.NS": 0.0539,
+          "TCS.NS": 0.0693,
+          "INFY.NS": 0.0536,
+          "HDFCBANK.NS": 0.047,
+          "ICICIBANK.NS": 0.0429,
+          "BHARTIARTL.NS": 0.059,
+          "ITC.NS": 0.0527,
+          "HINDUNILVR.NS": 0.0736,
+          "LT.NS": 0.029,
+          "SBIN.NS": 0.0158,
+          "BAJFINANCE.NS": 0.0491,
+          "MARUTI.NS": 0.029,
+          "HCLTECH.NS": 0.078,
+          "SUNPHARMA.NS": 0.0527,
+          "NTPC.NS": 0.0484,
+          "WIPRO.NS": 0.059,
+          "ADANIENT.NS": 0.0421,
+          "KOTAKBANK.NS": 0.0546,
+          "AXISBANK.NS": 0.036,
+          "TITAN.NS": 0.0544
+        }
+      },
+      {
+        "date": "2020-03-03",
+        "weights": {
+          "RELIANCE.NS": 0.049,
+          "TCS.NS": 0.0513,
+          "INFY.NS": 0.0453,
+          "HDFCBANK.NS": 0.044,
+          "ICICIBANK.NS": 0.0588,
+          "BHARTIARTL.NS": 0.0692,
+          "ITC.NS": 0.03,
+          "HINDUNILVR.NS": 0.1079,
+          "LT.NS": 0.0263,
+          "SBIN.NS": 0.0281,
+          "BAJFINANCE.NS": 0.0665,
+          "MARUTI.NS": 0.0249,
+          "HCLTECH.NS": 0.0546,
+          "SUNPHARMA.NS": 0.0405,
+          "NTPC.NS": 0.0509,
+          "WIPRO.NS": 0.0495,
+          "ADANIENT.NS": 0.0518,
+          "KOTAKBANK.NS": 0.0564,
+          "AXISBANK.NS": 0.0264,
+          "TITAN.NS": 0.0686
+        }
+      },
+      {
+        "date": "2020-04-03",
+        "weights": {
+          "RELIANCE.NS": 0.0465,
+          "TCS.NS": 0.0566,
+          "INFY.NS": 0.0607,
+          "HDFCBANK.NS": 0.0474,
+          "ICICIBANK.NS": 0.0493,
+          "BHARTIARTL.NS": 0.094,
+          "ITC.NS": 0.0239,
+          "HINDUNILVR.NS": 0.1176,
+          "LT.NS": 0.0179,
+          "SBIN.NS": 0.0199,
+          "BAJFINANCE.NS": 0.0442,
+          "MARUTI.NS": 0.0276,
+          "HCLTECH.NS": 0.0537,
+          "SUNPHARMA.NS": 0.0526,
+          "NTPC.NS": 0.0425,
+          "WIPRO.NS": 0.0633,
+          "ADANIENT.NS": 0.054,
+          "KOTAKBANK.NS": 0.0595,
+          "AXISBANK.NS": 0.0162,
+          "TITAN.NS": 0.0526
+        }
+      },
+      {
+        "date": "2020-05-08",
+        "weights": {
+          "RELIANCE.NS": 0.0795,
+          "TCS.NS": 0.0571,
+          "INFY.NS": 0.0555,
+          "HDFCBANK.NS": 0.036,
+          "ICICIBANK.NS": 0.0376,
+          "BHARTIARTL.NS": 0.0997,
+          "ITC.NS": 0.0313,
+          "HINDUNILVR.NS": 0.0849,
+          "LT.NS": 0.0335,
+          "SBIN.NS": 0.015,
+          "BAJFINANCE.NS": 0.0237,
+          "MARUTI.NS": 0.0308,
+          "HCLTECH.NS": 0.0564,
+          "SUNPHARMA.NS": 0.0929,
+          "NTPC.NS": 0.0635,
+          "WIPRO.NS": 0.0537,
+          "ADANIENT.NS": 0.0448,
+          "KOTAKBANK.NS": 0.0374,
+          "AXISBANK.NS": 0.0257,
+          "TITAN.NS": 0.0411
+        }
+      },
+      {
+        "date": "2020-06-09",
+        "weights": {
+          "RELIANCE.NS": 0.0715,
+          "TCS.NS": 0.0811,
+          "INFY.NS": 0.0536,
+          "HDFCBANK.NS": 0.0342,
+          "ICICIBANK.NS": 0.036,
+          "BHARTIARTL.NS": 0.0958,
+          "ITC.NS": 0.0436,
+          "HINDUNILVR.NS": 0.0902,
+          "LT.NS": 0.0183,
+          "SBIN.NS": 0.0107,
+          "BAJFINANCE.NS": 0.0238,
+          "MARUTI.NS": 0.0341,
+          "HCLTECH.NS": 0.0684,
+          "SUNPHARMA.NS": 0.102,
+          "NTPC.NS": 0.052,
+          "WIPRO.NS": 0.0539,
+          "ADANIENT.NS": 0.0367,
+          "KOTAKBANK.NS": 0.0361,
+          "AXISBANK.NS": 0.0196,
+          "TITAN.NS": 0.0384
+        }
+      }
+    ],
+    "benchmark": {
+      "return": -16.12,
+      "max_dd": -38.44
+    },
+    "n_rebalances": 6
+  }
+}

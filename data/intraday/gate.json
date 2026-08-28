@@ -1,0 +1,259 @@
+{
+  "registered": "2026-07-21T11:40:00+05:30",
+  "status": "CLOSED",
+  "purpose": "Sole authorized path from paper intraday trading to live rupees. Written before any paper session data exists. Edits after data collection begins require a dated amendment block below; silent edits void the gate.",
+  "primary_hypothesis": {
+    "name": "ORB-NIFTYBEES-v1",
+    "instrument": "NIFTYBEES (NSE)",
+    "product": "MIS modeled, 1x leverage only, long only",
+    "rules": "Opening range = high/low of 1-min bars 09:15-09:45 IST. One entry per session: buy stop at range_high + 1 tick, valid until 13:00 IST. Initial stop = range midpoint. Exits: stop hit, or time exit 15:10 IST. Position notional Rs.2,000. No re-entries.",
+    "fill_model": "Entry at trigger + 1 tick + half-spread; exits at stop/close - half-spread; costs from quantshield/costs.py; blind sessions (feed stale >3min at signal time) take no trade and are excluded from N",
+    "freeze_rule": "Any parameter change creates ORB-NIFTYBEES-v2 with its own clock starting at zero; v1 continues accruing unchanged. Only ONE arm is ever the primary hypothesis for the gate test."
+  },
+  "secondary_arms": {
+    "discretionary": "Operator session tickets, tagged discretionary=true. EXPLORATORY ONLY: excluded from the gate test. If ever promoted to a gate candidate, it becomes a new primary with a fresh 60-session clock and Bonferroni correction for arms tested to date."
+  },
+  "benchmark_and_test": {
+    "benchmark": "Same-capital NIFTYBEES buy-and-hold, exposure-adjusted: adjusted_delta_t = strat_ret_t - beta_t * bench_ret_t, where beta_t = fraction of session the strategy held a position",
+    "directional_guard": "The gate cannot open in an evaluation window where raw buy-and-hold return was negative (a bear window must not flatter a mostly-flat strategy)",
+    "test": "One-sided bootstrap, 10,000 resamples, on the adjusted daily delta series; gate requires p < 0.05",
+    "min_sessions": 60,
+    "power_statement": "At ~Rs.45-50 daily delta sigma on the paper book, N=60 detects only ~Sharpe 3.5-4 effects. Non-rejection is the EXPECTED outcome and is NOT evidence the strategy 'nearly worked'. This gate exists to protect capital from its operators.",
+    "reviewer": "Independent written review must concur before the gate is declared open; p-value alone is insufficient"
+  },
+  "live_pilot_if_gate_opens": {
+    "funding": "Pilot capital is funded separately; the existing CNC book is not unwound to fund the pilot",
+    "size": "Rs.2,000 MIS notional, 1x, max one round trip per session",
+    "execution": "Deterministic executor only (MIS-capable fork of quantshield/live/executor.py with identical guardrail philosophy); orders are placed, sized, and approved by that executor and nothing else; resting SL-M/SL-L stop on the book immediately after any fill; deterministic 15:05/15:12 IST two-stage flatten ladder in code, never dependent on an operator being present",
+    "duration_sessions": 40,
+    "promotion_criteria": "Net P&L > 2x cumulative transaction costs AND max drawdown < 10% of pilot capital",
+    "kill_criterion": "Cumulative pilot drawdown >= Rs.500 auto-writes data/KILL_INTRADAY; pilot ends; written post-mortem required before any restart",
+    "compliance_cost": "Any recurring compliance cost created by the first live MIS trade is counted against pilot EV in the promotion review"
+  },
+  "scale_ladder": [
+    {
+      "stage": "stage 1",
+      "requires": "Pilot promoted on its written criteria; then >=40 further sessions with net > 2x costs and DD < 10% at this size"
+    },
+    {
+      "stage": "stage 2",
+      "requires": "Prior stage promoted; >=6 months cumulative live evidence; net Sharpe >= 1.5 after all costs including data fees and filing"
+    },
+    {
+      "stage": "stage 3",
+      "requires": "All prior stages promoted; capital owner sign-off; written risk memo with independent written review; nothing here pre-commits the capital owner to this stage"
+    }
+  ],
+  "standing_rules": {
+    "no_topups": "Live account capital frozen at its registered balance plus the pre-registered pilot allocation only, until a stage promotion explicitly allows more",
+    "kill_hierarchy": "data/KILL halts the live executor and exit-guard actions; data/KILL_INTRADAY halts paper/feed/pilot arms only"
+  },
+  "verification_tasks_week_one": {
+    "cost_model": "Cross-check quantshield/costs.py against Zerodha's brokerage calculator for Rs.2,000 NIFTYBEES and Rs.2,000 SBIN MIS round trips; record both results here in an amendment block",
+    "orb_geometry": "From 1-min historical backfill: opening-range width distribution, implied cost-in-R per trade, breakeven win-rate/R frontier; recorded here before the first scored session",
+    "mis_eligibility": "Confirm NIFTYBEES MIS eligibility and margin at Zerodha"
+  },
+  "evidence_context": "SEBI FY23: 71% of equity intraday traders lose (80% for frequent). Brazil/Taiwan studies: no learning curve exists at population scale. This project's own validated finding: no signal stack beat equal-weight on daily data with significance.",
+  "amendments": [
+    {
+      "date": "2026-07-21",
+      "type": "verification",
+      "task": "orb_geometry_replay",
+      "note": "In-sample cost-geometry replay on official 1-min candles via frozen evaluate_session. NOT the gate test; live paper sessions remain the only gate evidence.",
+      "results": {
+        "sessions": 132,
+        "date_range": [
+          "2026-01-05",
+          "2026-07-20"
+        ],
+        "triggered": 43,
+        "trigger_rate_pct": 32.6,
+        "wins": 13,
+        "win_rate_pct": 30.2,
+        "avg_win_rs": 4.23,
+        "avg_loss_rs": -6.56,
+        "payoff_ratio": 0.64,
+        "breakeven_win_rate_pct": 60.8,
+        "net_total_rs": -141.91,
+        "net_per_session_rs": -1.075,
+        "total_costs_rs": 65.16,
+        "max_drawdown_rs": -147.83,
+        "strategy_total_ret_pct": -7.1,
+        "bench_cum_daily_pct": -38.63,
+        "or_width_pct_median": 0.783,
+        "or_width_pct_p25_p75": [
+          0.576,
+          1.124
+        ],
+        "cost_in_r_median": 0.237,
+        "adjusted_delta_mean_pct": -0.0866,
+        "adjusted_delta_std_pct": 0.1823,
+        "bootstrap_p_one_sided": 1.0,
+        "skipped_days": [
+          "2026-01-02"
+        ],
+        "caveats": [
+          "in-sample single regime slice; no parameter search was run (v1 rules frozen before this replay)",
+          "official candles have no intrabar sequencing: same-bar stop ambiguity resolved adversarially",
+          "this is plausibility evidence only; the gate counts live paper sessions exclusively"
+        ]
+      }
+    },
+    {
+      "date": "2026-08-28",
+      "type": "benchmark_open_definition",
+      "note": "The Kite 09:15 candle open is the pre-open auction print. Across the 132 replay sessions it sits 0.35% above the 09:16 open on average, so the session benchmark recorded a summed return of -38.63% over a window whose first-close to last-close return was -6.99%. The session open for the benchmark is now the 09:15 bar close. Strategy rules and fills are untouched: the replay reproduces 43 triggers, 13 wins, net -141.91 exactly. Records now carry bench_open, bench_close and signal_gap_min.",
+      "old_definition": "bench_open = 09:15 candle open; bench_close = last bar close at or before 15:30",
+      "new_definition": "bench_open = 09:15 candle close; bench_close = last bar close at or before 15:30",
+      "replay_window": [
+        "2026-01-05",
+        "2026-07-20"
+      ],
+      "sessions": 132,
+      "bench_cum_daily_pct_old": -38.63,
+      "bench_cum_daily_pct_new": 6.93,
+      "bench_hold_ret_pct_first_open_to_last_close": -7.34,
+      "bench_first_close_to_last_close_pct": -6.99,
+      "adjusted_delta_mean_pct_old": -0.0866,
+      "adjusted_delta_mean_pct_new": -0.1214,
+      "bootstrap_p_one_sided_old": 1.0,
+      "bootstrap_p_one_sided_new": 1.0,
+      "directional_guard": "computed by the scoreboard as buy-and-hold from the first scored session open to the last scored session close, per the registered wording; the earlier sum of session returns is no longer used",
+      "blind_rule": "feed gaps are judged up to the entry bar, or up to 13:00 when no entry triggered, per the registered fill_model wording; the earlier implementation judged gaps up to 15:10"
+    },
+    {
+      "date": "2026-08-28",
+      "type": "redaction",
+      "note": "Edits made for public release. Every change to a registered block is listed here; nothing else in the registered blocks changed. Hashes are SHA-256 of the registered blocks (all keys except amendments) as canonical JSON, so the private original can be checked against this file. Extended on 2026-08-28 with three further edits listed below; the after-hash is the current one.",
+      "registered_sha256_before": "d51e027f99859cd82073ab59b4068b9efab5eb4e43283b4b4f1965fc8c43d7cb",
+      "registered_sha256_after": "673309c318b09500cfb28e6ebc20e132f614d6229b85c9be520a1b789c3dca5a",
+      "edits": [
+        {
+          "field": "status",
+          "change": "reworded",
+          "reason": "study closed; see status amendment"
+        },
+        {
+          "field": "primary_hypothesis.fill_model",
+          "change": "reworded",
+          "reason": "stale module path updated"
+        },
+        {
+          "field": "secondary_arms.[former key]",
+          "change": "renamed to secondary_arms.discretionary",
+          "reason": "arm key referred to an assistant tool"
+        },
+        {
+          "field": "secondary_arms.discretionary",
+          "change": "reworded",
+          "reason": "personal name and assistant reference removed"
+        },
+        {
+          "field": "benchmark_and_test.reviewer",
+          "change": "reworded",
+          "reason": "reviewer identity removed"
+        },
+        {
+          "field": "live_pilot_if_gate_opens.funding",
+          "change": "reworded",
+          "reason": "cash transfer amount removed"
+        },
+        {
+          "field": "live_pilot_if_gate_opens.execution",
+          "change": "reworded",
+          "reason": "assistant references removed; stale module path updated"
+        },
+        {
+          "field": "live_pilot_if_gate_opens.compliance_cost",
+          "change": "reworded",
+          "reason": "account holder tax-filing note removed"
+        },
+        {
+          "field": "scale_ladder.2.requires",
+          "change": "reworded",
+          "reason": "savings cap sentence, sign-off wording, and reviewer identity removed"
+        },
+        {
+          "field": "standing_rules.no_topups",
+          "change": "reworded",
+          "reason": "account balance removed"
+        },
+        {
+          "field": "standing_rules.session_window",
+          "change": "removed",
+          "reason": "personal schedule removed"
+        },
+        {
+          "field": "standing_rules.[tooling budget key]",
+          "change": "removed",
+          "reason": "tooling budget rule removed"
+        },
+        {
+          "field": "standing_rules.kill_hierarchy",
+          "change": "reworded",
+          "reason": "tooling reference removed"
+        },
+        {
+          "field": "verification_tasks_week_one.cost_model",
+          "change": "reworded",
+          "reason": "stale module path updated"
+        },
+        {
+          "field": "evidence_context",
+          "change": "reworded",
+          "reason": "tooling benchmark sentence and closing slogan removed"
+        },
+        {
+          "field": "benchmark_and_test.power_statement",
+          "change": "reworded",
+          "reason": "book size removed"
+        },
+        {
+          "field": "evidence_context",
+          "change": "reworded",
+          "reason": "account size comparison removed"
+        },
+        {
+          "field": "scale_ladder.*.stage",
+          "change": "reworded",
+          "reason": "capital amounts replaced with stage numbers"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-28",
+      "type": "status",
+      "status": "CLOSED",
+      "note": "Study closed. The live paper test collected 1 of 60 sessions (2026-07-21, untriggered, not blind). The feed job was never scheduled, so no further sessions were recorded. The replay verdict is negative after costs (43 triggers, 13 wins, net -141.91 on 2,000 notional, one-sided bootstrap p = 1.0). The gate never opened and no live pilot ran.",
+      "live_sessions_collected": 1,
+      "live_sessions_required": 60,
+      "feed_scheduled": false,
+      "week_one_checks_recorded": [
+        "orb_geometry"
+      ],
+      "week_one_checks_never_recorded": [
+        "cost_model",
+        "mis_eligibility"
+      ]
+    },
+    {
+      "date": "2026-08-28",
+      "type": "cost_model_correction",
+      "note": "quantshield/costs.py exempted ETF intraday sells from STT. Zerodha charges 0.025% STT on intraday sells of equity ETFs such as NIFTYBEES (only gold, liquid, gilt and some international ETFs are exempt). The constant was set to 0.025% and the replay re-run on the same 132 sessions with the same frozen rules; entries, exits and gross P&L are unchanged.",
+      "stt_intraday_sell_etf_old": 0.0,
+      "stt_intraday_sell_etf_new": 0.00025,
+      "total_costs_rs_old": 65.16,
+      "total_costs_rs_new": 85.18,
+      "net_total_rs_old": -141.91,
+      "net_total_rs_new": -161.93,
+      "max_drawdown_rs_old": -147.83,
+      "max_drawdown_rs_new": -167.37,
+      "breakeven_win_rate_pct_old": 60.8,
+      "breakeven_win_rate_pct_new": 65.1,
+      "gross_total_rs": -76.75,
+      "bootstrap_p_one_sided": 1.0,
+      "verdict": "unchanged, gate remains closed",
+      "week_one_check_cost_model": "recorded by this amendment: cross-checked against the Zerodha rate card on 2026-08-28; NSE transaction charge and DP charge rates on the card (0.00307%, 15.34 INR) differ from the constants (0.00297%, 15.93 INR) by under 1 INR per leg and were left as calibrated to the July contract note"
+    }
+  ]
+}

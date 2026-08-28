@@ -1,0 +1,268 @@
+{
+  "us": {
+    "full_sample": {
+      "turn_of_month": {
+        "tom_annual_ret": 17.45,
+        "non_tom_annual_ret": 12.47,
+        "tom_sharpe": 1.068,
+        "non_tom_sharpe": 0.711,
+        "tom_days": 1081,
+        "non_tom_days": 2687,
+        "spread_bps_per_day": 1.98,
+        "pval": 0.527887
+      },
+      "january_effect": {
+        "jan_mean_ret": 1.3,
+        "non_jan_mean_ret": 1.09,
+        "jan_win_rate": 60.0,
+        "jan_count": 15,
+        "pval": 0.853059
+      },
+      "sell_in_may": {
+        "winter_annual_ret": 14.04,
+        "summer_annual_ret": 12.54,
+        "winter_sharpe": 0.966,
+        "summer_sharpe": 0.913,
+        "spread_annual_pct": 1.5,
+        "pval": 0.778081
+      },
+      "opex_week": {
+        "opex_annual_ret": 7.66,
+        "non_opex_annual_ret": 15.79,
+        "opex_vol": 16.27,
+        "non_opex_vol": 17.46,
+        "opex_days": 877,
+        "non_opex_days": 2891,
+        "pval": 0.351296
+      }
+    },
+    "is_oos": {
+      "IS": {
+        "turn_of_month": {
+          "tom_annual_ret": 15.65,
+          "non_tom_annual_ret": 8.81,
+          "tom_sharpe": 1.017,
+          "non_tom_sharpe": 0.508,
+          "tom_days": 648,
+          "non_tom_days": 1612,
+          "spread_bps_per_day": 2.71,
+          "pval": 0.47672
+        },
+        "january_effect": {
+          "jan_mean_ret": 1.52,
+          "non_jan_mean_ret": 0.77,
+          "jan_win_rate": 55.6,
+          "jan_count": 9,
+          "pval": 0.641748
+        },
+        "sell_in_may": {
+          "winter_annual_ret": 11.77,
+          "summer_annual_ret": 8.33,
+          "winter_sharpe": 0.901,
+          "summer_sharpe": 0.66,
+          "spread_annual_pct": 3.44,
+          "pval": 0.582173
+        },
+        "opex_week": {
+          "opex_annual_ret": 8.81,
+          "non_opex_annual_ret": 11.37,
+          "opex_vol": 16.23,
+          "non_opex_vol": 16.98,
+          "opex_days": 527,
+          "non_opex_days": 1733,
+          "pval": 0.819824
+        },
+        "period": "2011-04-06 to 2020-03-31",
+        "n_days": 2261
+      },
+      "OOS": {
+        "turn_of_month": {
+          "tom_annual_ret": 26.68,
+          "non_tom_annual_ret": 16.39,
+          "tom_sharpe": 1.476,
+          "non_tom_sharpe": 0.936,
+          "tom_days": 433,
+          "non_tom_days": 1074,
+          "spread_bps_per_day": 4.09,
+          "pval": 0.455708
+        },
+        "january_effect": {
+          "jan_mean_ret": 0.96,
+          "non_jan_mean_ret": 1.39,
+          "jan_win_rate": 66.7,
+          "jan_count": 6,
+          "pval": 0.79744
+        },
+        "sell_in_may": {
+          "winter_annual_ret": 13.54,
+          "summer_annual_ret": 18.86,
+          "winter_sharpe": 0.88,
+          "summer_sharpe": 1.235,
+          "spread_annual_pct": -5.32,
+          "pval": 0.553091
+        },
+        "opex_week": {
+          "opex_annual_ret": 5.92,
+          "non_opex_annual_ret": 23.41,
+          "opex_vol": 16.36,
+          "non_opex_vol": 18.05,
+          "opex_days": 350,
+          "non_opex_days": 1157,
+          "pval": 0.208495
+        },
+        "period": "2020-04-01 to 2026-04-01",
+        "n_days": 1508
+      }
+    },
+    "regime_conditional_tom": {
+      "low_vol": {
+        "tom_mean_bps": 13.9,
+        "non_tom_mean_bps": 15.6,
+        "spread_bps": -1.7,
+        "n_tom": 680,
+        "n_non_tom": 1661
+      },
+      "mid_vol": {
+        "tom_mean_bps": -5.5,
+        "non_tom_mean_bps": -3.78,
+        "spread_bps": -1.72,
+        "n_tom": 252,
+        "n_non_tom": 686
+      },
+      "high_vol": {
+        "tom_mean_bps": -3.91,
+        "non_tom_mean_bps": -29.51,
+        "spread_bps": 25.6,
+        "n_tom": 149,
+        "n_non_tom": 340
+      }
+    }
+  },
+  "india": {
+    "full_sample": {
+      "turn_of_month": {
+        "tom_annual_ret": 25.18,
+        "non_tom_annual_ret": 4.36,
+        "tom_sharpe": 1.484,
+        "non_tom_sharpe": 0.269,
+        "tom_days": 1080,
+        "non_tom_days": 2593,
+        "spread_bps_per_day": 8.26,
+        "pval": 0.011196
+      },
+      "january_effect": {
+        "jan_mean_ret": 0.76,
+        "non_jan_mean_ret": 0.88,
+        "jan_win_rate": 33.3,
+        "jan_count": 15,
+        "pval": 0.917485
+      },
+      "sell_in_may": {
+        "winter_annual_ret": 6.25,
+        "summer_annual_ret": 14.64,
+        "winter_sharpe": 0.343,
+        "summer_sharpe": 1.039,
+        "spread_annual_pct": -8.39,
+        "pval": 0.213213
+      },
+      "opex_week": {
+        "opex_annual_ret": 9.73,
+        "non_opex_annual_ret": 10.71,
+        "opex_vol": 16.36,
+        "non_opex_vol": 16.49,
+        "opex_days": 847,
+        "non_opex_days": 2826,
+        "pval": 0.912526
+      }
+    },
+    "is_oos": {
+      "IS": {
+        "turn_of_month": {
+          "tom_annual_ret": 15.06,
+          "non_tom_annual_ret": 2.99,
+          "tom_sharpe": 0.897,
+          "non_tom_sharpe": 0.169,
+          "tom_days": 654,
+          "non_tom_days": 1549,
+          "spread_bps_per_day": 4.79,
+          "pval": 0.24717
+        },
+        "january_effect": {
+          "jan_mean_ret": 2.23,
+          "non_jan_mean_ret": 0.41,
+          "jan_win_rate": 55.6,
+          "jan_count": 9,
+          "pval": 0.342669
+        },
+        "sell_in_may": {
+          "winter_annual_ret": 2.66,
+          "summer_annual_ret": 10.72,
+          "winter_sharpe": 0.139,
+          "summer_sharpe": 0.736,
+          "spread_annual_pct": -8.06,
+          "pval": 0.374691
+        },
+        "opex_week": {
+          "opex_annual_ret": 10.12,
+          "non_opex_annual_ret": 5.51,
+          "opex_vol": 17.12,
+          "non_opex_vol": 17.5,
+          "opex_days": 509,
+          "non_opex_days": 1694,
+          "pval": 0.70207
+        },
+        "period": "2011-04-05 to 2020-04-22",
+        "n_days": 2204
+      },
+      "OOS": {
+        "turn_of_month": {
+          "tom_annual_ret": 39.6,
+          "non_tom_annual_ret": 6.37,
+          "tom_sharpe": 2.271,
+          "non_tom_sharpe": 0.465,
+          "tom_days": 431,
+          "non_tom_days": 1038,
+          "spread_bps_per_day": 13.19,
+          "pval": 0.013049
+        },
+        "january_effect": {
+          "jan_mean_ret": -1.45,
+          "non_jan_mean_ret": 1.49,
+          "jan_win_rate": 0.0,
+          "jan_count": 6,
+          "pval": 0.003334
+        },
+        "sell_in_may": {
+          "winter_annual_ret": 9.11,
+          "summer_annual_ret": 20.53,
+          "winter_sharpe": 0.598,
+          "summer_sharpe": 1.534,
+          "spread_annual_pct": -11.42,
+          "pval": 0.209521
+        },
+        "opex_week": {
+          "opex_annual_ret": 9.15,
+          "non_opex_annual_ret": 18.2,
+          "opex_vol": 15.16,
+          "non_opex_vol": 14.84,
+          "opex_days": 338,
+          "non_opex_days": 1131,
+          "pval": 0.4894
+        },
+        "period": "2020-04-23 to 2026-03-30",
+        "n_days": 1470
+      }
+    }
+  },
+  "bonferroni_alpha": 0.0033333333333333335,
+  "pvals": {
+    "us_tom": 0.527887,
+    "us_jan": 0.853059,
+    "us_sim": 0.778081,
+    "us_opex": 0.351296,
+    "india_tom": 0.011196,
+    "india_jan": 0.917485,
+    "india_sim": 0.213213,
+    "india_opex": 0.912526
+  }
+}

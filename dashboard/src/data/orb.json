@@ -1,0 +1,16 @@
+{
+  "registered": "2026-07-21",
+  "sessions": 132,
+  "triggered": 43,
+  "wins": 13,
+  "win_rate_pct": 30.2,
+  "breakeven_win_rate_pct": 65.1,
+  "gross": -76.75,
+  "costs": 85.18,
+  "net": -161.93,
+  "max_drawdown": -167.37,
+  "bootstrap_p": 1.0,
+  "notional": 2000,
+  "verdict": "Gate closed, negative after costs",
+  "benchmark_note": "Session benchmark is the same-capital NIFTYBEES return from the 09:15 bar close to the last bar close, weighted by time in market; the 09:15 bar open is the pre-open auction print and is not used. Summed session returns over the window: 6.93%; buy-and-hold from the first session open to the last session close: -7.34%."
+}

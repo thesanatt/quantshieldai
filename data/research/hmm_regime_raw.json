@@ -1,0 +1,552 @@
+{
+  "data_range": "2016-06-02 to 2026-04-01",
+  "n_days": 2471,
+  "features_used": [
+    "vix_level",
+    "vix_change_5d",
+    "bm_ret_21d",
+    "bm_vol_21d",
+    "yield_change_21d",
+    "gold_ret_21d"
+  ],
+  "hmm_3state_mapping": {
+    "0": "risk_on",
+    "1": "risk_off",
+    "2": "crisis"
+  },
+  "hmm_2state_mapping": {
+    "0": "risk_on",
+    "1": "crisis"
+  },
+  "agreement_pct": 36.3,
+  "ic_analysis": {
+    "fwd_5d": {
+      "hmm_ic": -0.0327,
+      "hmm_icir": -0.2659,
+      "heur_ic": -0.1134,
+      "heur_icir": -1.2456
+    },
+    "fwd_21d": {
+      "hmm_ic": -0.0999,
+      "hmm_icir": -0.5709,
+      "heur_ic": -0.1931,
+      "heur_icir": -1.5127
+    },
+    "fwd_63d": {
+      "hmm_ic": -0.1624,
+      "hmm_icir": -0.5835,
+      "heur_ic": -0.2195,
+      "heur_icir": -1.665
+    }
+  },
+  "quintile_analysis": {
+    "fwd_21d": "{'hmm': {0: {'mean': 0.013482832757070256, 'std': 0.048497243078681314, 'count': 1700}, 1: {'mean': 0.010111656082843173, 'std': 0.03712968467624537, 'count': 750}}, 'heur': {0: {'mean': 0.020915879974333224, 'std': 0.05758559284690717, 'count': 759}, 1: {'mean': 0.008651333440941987, 'std': 0.03801362879280477, 'count': 1691}}}",
+    "fwd_63d": "{'hmm': {0: {'mean': 0.04177618387525637, 'std': 0.07241222069377956, 'count': 1679}, 1: {'mean': 0.028019543791826727, 'std': 0.0646118826367994, 'count': 729}}, 'heur': {0: {'mean': 0.057779799900642984, 'std': 0.08045438507194153, 'count': 749}, 1: {'mean': 0.02850596143774294, 'std': 0.06333164168164507, 'count': 1659}}}"
+  },
+  "regime_conditional_returns": {
+    "risk_on": {
+      "hmm_mean_21d": 1.01,
+      "hmm_std_21d": 3.71,
+      "hmm_count": 750,
+      "heur_mean_21d": 0.87,
+      "heur_std_21d": 3.8,
+      "heur_count": 1691
+    },
+    "risk_off": {
+      "hmm_mean_21d": 1.0,
+      "hmm_std_21d": 3.71,
+      "hmm_count": 767,
+      "heur_mean_21d": 1.27,
+      "heur_std_21d": 5.14,
+      "heur_count": 639
+    },
+    "crisis": {
+      "hmm_mean_21d": 1.63,
+      "hmm_std_21d": 5.6,
+      "hmm_count": 954,
+      "heur_mean_21d": 5.74,
+      "heur_std_21d": 6.87,
+      "heur_count": 141
+    }
+  },
+  "walk_forward": [
+    {
+      "period_start": "2019-06-06",
+      "period_end": "2019-09-04",
+      "hmm_return": 9.8,
+      "heuristic_return": 9.83,
+      "benchmark_return": 4.43,
+      "hmm_regimes": {
+        "crisis": 6,
+        "risk_on": 19,
+        "risk_off": 38
+      },
+      "heur_regimes": {
+        "risk_on": 57,
+        "risk_off": 6
+      },
+      "agreement_pct": 36.5
+    },
+    {
+      "period_start": "2019-09-05",
+      "period_end": "2019-12-03",
+      "hmm_return": 8.51,
+      "heuristic_return": 8.52,
+      "benchmark_return": 5.81,
+      "hmm_regimes": {
+        "crisis": 15,
+        "risk_on": 24,
+        "risk_off": 24
+      },
+      "heur_regimes": {
+        "risk_on": 61,
+        "risk_off": 2
+      },
+      "agreement_pct": 38.1
+    },
+    {
+      "period_start": "2019-12-04",
+      "period_end": "2020-03-05",
+      "hmm_return": 8.83,
+      "heuristic_return": 8.84,
+      "benchmark_return": -1.79,
+      "hmm_regimes": {
+        "crisis": 28,
+        "risk_on": 17,
+        "risk_off": 18
+      },
+      "heur_regimes": {
+        "crisis": 6,
+        "risk_on": 54,
+        "risk_off": 3
+      },
+      "agreement_pct": 36.5
+    },
+    {
+      "period_start": "2020-03-06",
+      "period_end": "2020-06-04",
+      "hmm_return": 7.43,
+      "heuristic_return": 7.31,
+      "benchmark_return": 3.52,
+      "hmm_regimes": {
+        "crisis": 63
+      },
+      "heur_regimes": {
+        "crisis": 49,
+        "risk_off": 14
+      },
+      "agreement_pct": 77.8
+    },
+    {
+      "period_start": "2020-06-05",
+      "period_end": "2020-09-02",
+      "hmm_return": 28.79,
+      "heuristic_return": 28.42,
+      "benchmark_return": 15.42,
+      "hmm_regimes": {
+        "crisis": 62,
+        "risk_off": 1
+      },
+      "heur_regimes": {
+        "crisis": 12,
+        "risk_off": 51
+      },
+      "agreement_pct": 20.6
+    },
+    {
+      "period_start": "2020-09-03",
+      "period_end": "2020-12-02",
+      "hmm_return": -0.39,
+      "heuristic_return": -0.56,
+      "benchmark_return": 2.95,
+      "hmm_regimes": {
+        "risk_on": 1,
+        "risk_off": 62
+      },
+      "heur_regimes": {
+        "crisis": 9,
+        "risk_off": 54
+      },
+      "agreement_pct": 85.7
+    },
+    {
+      "period_start": "2020-12-03",
+      "period_end": "2021-03-05",
+      "hmm_return": 0.42,
+      "heuristic_return": 0.39,
+      "benchmark_return": 5.08,
+      "hmm_regimes": {
+        "crisis": 1,
+        "risk_on": 1,
+        "risk_off": 61
+      },
+      "heur_regimes": {
+        "crisis": 4,
+        "risk_off": 58,
+        "risk_on": 1
+      },
+      "agreement_pct": 88.9
+    },
+    {
+      "period_start": "2021-03-08",
+      "period_end": "2021-06-04",
+      "hmm_return": 14.83,
+      "heuristic_return": 14.57,
+      "benchmark_return": 10.54,
+      "hmm_regimes": {
+        "crisis": 62,
+        "risk_on": 1
+      },
+      "heur_regimes": {
+        "risk_on": 45,
+        "risk_off": 18
+      },
+      "agreement_pct": 0.0
+    },
+    {
+      "period_start": "2021-06-07",
+      "period_end": "2021-09-02",
+      "hmm_return": 13.47,
+      "heuristic_return": 13.47,
+      "benchmark_return": 7.63,
+      "hmm_regimes": {
+        "risk_on": 29,
+        "risk_off": 34
+      },
+      "heur_regimes": {
+        "risk_on": 59,
+        "risk_off": 4
+      },
+      "agreement_pct": 52.4
+    },
+    {
+      "period_start": "2021-09-03",
+      "period_end": "2021-12-02",
+      "hmm_return": 5.77,
+      "heuristic_return": 5.76,
+      "benchmark_return": 1.25,
+      "hmm_regimes": {
+        "risk_on": 12,
+        "risk_off": 51
+      },
+      "heur_regimes": {
+        "crisis": 1,
+        "risk_on": 45,
+        "risk_off": 17
+      },
+      "agreement_pct": 46.0
+    },
+    {
+      "period_start": "2021-12-03",
+      "period_end": "2022-03-04",
+      "hmm_return": -2.59,
+      "heuristic_return": -2.63,
+      "benchmark_return": -5.17,
+      "hmm_regimes": {
+        "risk_on": 1,
+        "risk_off": 62
+      },
+      "heur_regimes": {
+        "crisis": 11,
+        "risk_off": 32,
+        "risk_on": 20
+      },
+      "agreement_pct": 50.8
+    },
+    {
+      "period_start": "2022-03-07",
+      "period_end": "2022-06-03",
+      "hmm_return": -7.51,
+      "heuristic_return": -7.65,
+      "benchmark_return": -4.69,
+      "hmm_regimes": {
+        "crisis": 5,
+        "risk_on": 1,
+        "risk_off": 57
+      },
+      "heur_regimes": {
+        "crisis": 13,
+        "risk_off": 45,
+        "risk_on": 5
+      },
+      "agreement_pct": 63.5
+    },
+    {
+      "period_start": "2022-06-06",
+      "period_end": "2022-09-02",
+      "hmm_return": -4.02,
+      "heuristic_return": -4.24,
+      "benchmark_return": -4.11,
+      "hmm_regimes": {
+        "crisis": 28,
+        "risk_on": 1,
+        "risk_off": 34
+      },
+      "heur_regimes": {
+        "crisis": 3,
+        "risk_off": 54,
+        "risk_on": 6
+      },
+      "agreement_pct": 49.2
+    },
+    {
+      "period_start": "2022-09-06",
+      "period_end": "2022-12-02",
+      "hmm_return": 1.25,
+      "heuristic_return": 1.0,
+      "benchmark_return": 4.22,
+      "hmm_regimes": {
+        "crisis": 16,
+        "risk_on": 1,
+        "risk_off": 46
+      },
+      "heur_regimes": {
+        "crisis": 13,
+        "risk_off": 48,
+        "risk_on": 2
+      },
+      "agreement_pct": 52.4
+    },
+    {
+      "period_start": "2022-12-05",
+      "period_end": "2023-03-07",
+      "hmm_return": 1.07,
+      "heuristic_return": 1.04,
+      "benchmark_return": -1.68,
+      "hmm_regimes": {
+        "crisis": 62,
+        "risk_on": 1
+      },
+      "heur_regimes": {
+        "risk_on": 23,
+        "risk_off": 40
+      },
+      "agreement_pct": 0.0
+    },
+    {
+      "period_start": "2023-03-08",
+      "period_end": "2023-06-06",
+      "hmm_return": 22.14,
+      "heuristic_return": 22.14,
+      "benchmark_return": 7.91,
+      "hmm_regimes": {
+        "risk_on": 26,
+        "risk_off": 37
+      },
+      "heur_regimes": {
+        "risk_on": 48,
+        "risk_off": 15
+      },
+      "agreement_pct": 61.9
+    },
+    {
+      "period_start": "2023-06-07",
+      "period_end": "2023-09-06",
+      "hmm_return": 5.87,
+      "heuristic_return": 5.87,
+      "benchmark_return": 4.67,
+      "hmm_regimes": {
+        "crisis": 11,
+        "risk_on": 26,
+        "risk_off": 26
+      },
+      "heur_regimes": {
+        "risk_on": 63
+      },
+      "agreement_pct": 41.3
+    },
+    {
+      "period_start": "2023-09-07",
+      "period_end": "2023-12-05",
+      "hmm_return": 4.2,
+      "heuristic_return": 4.12,
+      "benchmark_return": 2.72,
+      "hmm_regimes": {
+        "crisis": 53,
+        "risk_on": 5,
+        "risk_off": 5
+      },
+      "heur_regimes": {
+        "risk_on": 57,
+        "risk_off": 6
+      },
+      "agreement_pct": 7.9
+    },
+    {
+      "period_start": "2023-12-06",
+      "period_end": "2024-03-07",
+      "hmm_return": 16.02,
+      "heuristic_return": 16.02,
+      "benchmark_return": 13.25,
+      "hmm_regimes": {
+        "risk_on": 34,
+        "risk_off": 29
+      },
+      "heur_regimes": {
+        "risk_on": 63
+      },
+      "agreement_pct": 54.0
+    },
+    {
+      "period_start": "2024-03-08",
+      "period_end": "2024-06-06",
+      "hmm_return": 10.88,
+      "heuristic_return": 10.85,
+      "benchmark_return": 4.18,
+      "hmm_regimes": {
+        "crisis": 20,
+        "risk_on": 21,
+        "risk_off": 22
+      },
+      "heur_regimes": {
+        "risk_on": 63
+      },
+      "agreement_pct": 33.3
+    },
+    {
+      "period_start": "2024-06-07",
+      "period_end": "2024-09-06",
+      "hmm_return": 1.57,
+      "heuristic_return": 1.52,
+      "benchmark_return": 1.42,
+      "hmm_regimes": {
+        "risk_on": 37,
+        "risk_off": 26
+      },
+      "heur_regimes": {
+        "crisis": 1,
+        "risk_on": 53,
+        "risk_off": 9
+      },
+      "agreement_pct": 73.0
+    },
+    {
+      "period_start": "2024-09-09",
+      "period_end": "2024-12-05",
+      "hmm_return": 10.71,
+      "heuristic_return": 10.71,
+      "benchmark_return": 12.65,
+      "hmm_regimes": {
+        "risk_on": 35,
+        "risk_off": 28
+      },
+      "heur_regimes": {
+        "risk_on": 50,
+        "risk_off": 13
+      },
+      "agreement_pct": 76.2
+    },
+    {
+      "period_start": "2024-12-06",
+      "period_end": "2025-03-11",
+      "hmm_return": -4.08,
+      "heuristic_return": -4.08,
+      "benchmark_return": -8.03,
+      "hmm_regimes": {
+        "risk_on": 29,
+        "risk_off": 34
+      },
+      "heur_regimes": {
+        "risk_on": 53,
+        "risk_off": 10
+      },
+      "agreement_pct": 61.9
+    },
+    {
+      "period_start": "2025-03-12",
+      "period_end": "2025-06-10",
+      "hmm_return": 8.51,
+      "heuristic_return": 8.34,
+      "benchmark_return": 8.81,
+      "hmm_regimes": {
+        "crisis": 56,
+        "risk_off": 4,
+        "risk_on": 3
+      },
+      "heur_regimes": {
+        "crisis": 12,
+        "risk_on": 25,
+        "risk_off": 26
+      },
+      "agreement_pct": 25.4
+    },
+    {
+      "period_start": "2025-06-11",
+      "period_end": "2025-09-10",
+      "hmm_return": 9.17,
+      "heuristic_return": 9.17,
+      "benchmark_return": 8.5,
+      "hmm_regimes": {
+        "risk_on": 31,
+        "risk_off": 32
+      },
+      "heur_regimes": {
+        "risk_on": 58,
+        "risk_off": 5
+      },
+      "agreement_pct": 50.8
+    },
+    {
+      "period_start": "2025-09-11",
+      "period_end": "2025-12-09",
+      "hmm_return": 7.68,
+      "heuristic_return": 7.68,
+      "benchmark_return": 5.04,
+      "hmm_regimes": {
+        "risk_on": 38,
+        "risk_off": 25
+      },
+      "heur_regimes": {
+        "risk_on": 51,
+        "risk_off": 12
+      },
+      "agreement_pct": 76.2
+    },
+    {
+      "period_start": "2025-12-10",
+      "period_end": "2026-03-12",
+      "hmm_return": 0.7,
+      "heuristic_return": 0.72,
+      "benchmark_return": -2.21,
+      "hmm_regimes": {
+        "crisis": 10,
+        "risk_on": 26,
+        "risk_off": 27
+      },
+      "heur_regimes": {
+        "risk_on": 46,
+        "risk_off": 17
+      },
+      "agreement_pct": 38.1
+    }
+  ],
+  "wf_cumulative": {
+    "hmm": 179.03,
+    "heuristic": 177.13,
+    "benchmark": 102.32
+  },
+  "wf_avg_agreement": 48.1,
+  "transition_matrix": [
+    [
+      0.0008396821386860543,
+      0.9991599630651259,
+      3.5479618807819963e-07
+    ],
+    [
+      0.9697992290775045,
+      0.004687834909691281,
+      0.025512936012804216
+    ],
+    [
+      0.0044530581408819755,
+      0.014906038281848687,
+      0.9806409035772694
+    ]
+  ],
+  "transitions_per_year": {
+    "hmm": 156.5,
+    "heur": 22.8
+  },
+  "bonferroni_pval": 1e-06,
+  "bonferroni_passes": true
+}

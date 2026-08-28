@@ -1,0 +1,443 @@
+{
+  "A_walk_forward": {
+    "n_oos_months": 75,
+    "sharpe_sew": 1.0619,
+    "sharpe_naive": 0.9962,
+    "sharpe_diff": 0.0657,
+    "ann_alpha_vs_naive": 2.09,
+    "max_dd_sew": -22.28,
+    "max_dd_naive": -22.64,
+    "bootstrap_95ci": {
+      "ci_lo": -0.1214,
+      "ci_hi": 0.2177,
+      "median": 0.0592,
+      "includes_zero": true
+    }
+  },
+  "B_parameter_sensitivity": {
+    "sector_buckets": {
+      "5": {
+        "sew_sharpe": 1.0802,
+        "naive_sharpe": 1.0802,
+        "improvement": 0.0
+      },
+      "6": {
+        "sew_sharpe": 1.099,
+        "naive_sharpe": 1.0802,
+        "improvement": 0.0188
+      },
+      "7": {
+        "sew_sharpe": 1.0601,
+        "naive_sharpe": 1.0802,
+        "improvement": -0.0201
+      },
+      "8": {
+        "sew_sharpe": 1.072,
+        "naive_sharpe": 1.0802,
+        "improvement": -0.0082
+      },
+      "9": {
+        "sew_sharpe": 1.0928,
+        "naive_sharpe": 1.0802,
+        "improvement": 0.0126
+      },
+      "10": {
+        "sew_sharpe": 1.0802,
+        "naive_sharpe": 1.0802,
+        "improvement": 0.0
+      }
+    },
+    "original_sew_sharpe": 1.2289,
+    "original_naive_sharpe": 1.0802,
+    "original_improvement": 0.1487,
+    "universe_size": {
+      "12": {
+        "mean_improvement": 0.1089,
+        "median_improvement": 0.0974,
+        "std_improvement": 0.0677,
+        "pct_positive": 98.0,
+        "min": -0.0477,
+        "max": 0.2325
+      },
+      "15": {
+        "mean_improvement": 0.1229,
+        "median_improvement": 0.1171,
+        "std_improvement": 0.0499,
+        "pct_positive": 98.0,
+        "min": -0.0087,
+        "max": 0.2398
+      },
+      "18": {
+        "mean_improvement": 0.1469,
+        "median_improvement": 0.1548,
+        "std_improvement": 0.0422,
+        "pct_positive": 100.0,
+        "min": 0.0581,
+        "max": 0.2409
+      },
+      "20": {
+        "mean_improvement": 0.1487,
+        "median_improvement": 0.1487,
+        "std_improvement": 0.0,
+        "pct_positive": 100.0,
+        "min": 0.1487,
+        "max": 0.1487
+      }
+    },
+    "rebalance_freq": {
+      "weekly_0bps": {
+        "sew_sharpe": 1.2174,
+        "naive_sharpe": 1.0772,
+        "improvement": 0.1402,
+        "sew_avg_turnover": 2.37,
+        "naive_avg_turnover": 2.35
+      },
+      "weekly_15bps": {
+        "sew_sharpe": 1.2055,
+        "naive_sharpe": 1.0654,
+        "improvement": 0.1401,
+        "sew_avg_turnover": 2.37,
+        "naive_avg_turnover": 2.35
+      },
+      "biweekly_0bps": {
+        "sew_sharpe": 1.2155,
+        "naive_sharpe": 1.0747,
+        "improvement": 0.1408,
+        "sew_avg_turnover": 3.33,
+        "naive_avg_turnover": 3.31
+      },
+      "biweekly_15bps": {
+        "sew_sharpe": 1.207,
+        "naive_sharpe": 1.0664,
+        "improvement": 0.1406,
+        "sew_avg_turnover": 3.33,
+        "naive_avg_turnover": 3.31
+      },
+      "monthly_0bps": {
+        "sew_sharpe": 1.2289,
+        "naive_sharpe": 1.0802,
+        "improvement": 0.1487,
+        "sew_avg_turnover": 5.02,
+        "naive_avg_turnover": 4.95
+      },
+      "monthly_15bps": {
+        "sew_sharpe": 1.2228,
+        "naive_sharpe": 1.0742,
+        "improvement": 0.1486,
+        "sew_avg_turnover": 5.02,
+        "naive_avg_turnover": 4.95
+      },
+      "quarterly_0bps": {
+        "sew_sharpe": 1.2291,
+        "naive_sharpe": 1.0793,
+        "improvement": 0.1498,
+        "sew_avg_turnover": 8.77,
+        "naive_avg_turnover": 8.51
+      },
+      "quarterly_15bps": {
+        "sew_sharpe": 1.2256,
+        "naive_sharpe": 1.0759,
+        "improvement": 0.1497,
+        "sew_avg_turnover": 8.77,
+        "naive_avg_turnover": 8.51
+      }
+    },
+    "sector_perturbation": {
+      "mean_improvement": 0.0846,
+      "median_improvement": 0.0859,
+      "std": 0.0585,
+      "pct_positive": 92.0,
+      "min": -0.063,
+      "max": 0.2533
+    }
+  },
+  "C_time_periods": {
+    "pre_covid_2015_2020": {
+      "n_days": 210,
+      "sew": {
+        "sharpe": 2.2658,
+        "ann_return": 35.45,
+        "ann_vol": 15.65,
+        "max_dd": -7.86,
+        "monthly_cvar": -5.14
+      },
+      "naive": {
+        "sharpe": 1.8676,
+        "ann_return": 27.11,
+        "ann_vol": 14.51,
+        "max_dd": -9.01,
+        "monthly_cvar": -5.95
+      },
+      "sharpe_diff": 0.3982,
+      "bootstrap": {
+        "ci_lo": -0.8625,
+        "ci_hi": 2.0543,
+        "median": 0.4112,
+        "includes_zero": true
+      }
+    },
+    "post_covid_2020_2025": {
+      "n_days": 1487,
+      "sew": {
+        "sharpe": 1.3131,
+        "ann_return": 23.87,
+        "ann_vol": 18.18,
+        "max_dd": -36.13,
+        "monthly_cvar": -12.8
+      },
+      "naive": {
+        "sharpe": 1.2075,
+        "ann_return": 21.66,
+        "ann_vol": 17.93,
+        "max_dd": -36.68,
+        "monthly_cvar": -12.8
+      },
+      "sharpe_diff": 0.1056,
+      "bootstrap": {
+        "ci_lo": -0.1143,
+        "ci_hi": 0.2232,
+        "median": 0.0638,
+        "includes_zero": true
+      }
+    },
+    "includes_covid_2018_2022": {
+      "n_days": 956,
+      "sew": {
+        "sharpe": 1.4455,
+        "ann_return": 30.62,
+        "ann_vol": 21.18,
+        "max_dd": -36.19,
+        "monthly_cvar": -16.6
+      },
+      "naive": {
+        "sharpe": 1.319,
+        "ann_return": 27.42,
+        "ann_vol": 20.79,
+        "max_dd": -36.73,
+        "monthly_cvar": -16.99
+      },
+      "sharpe_diff": 0.1265,
+      "bootstrap": {
+        "ci_lo": -0.2105,
+        "ci_hi": 0.2492,
+        "median": 0.0671,
+        "includes_zero": true
+      }
+    },
+    "excl_covid_crash": {
+      "n_days": 1677,
+      "sew": {
+        "sharpe": 1.5755,
+        "ann_return": 23.59,
+        "ann_vol": 14.98,
+        "max_dd": -14.04,
+        "monthly_cvar": -7.51
+      },
+      "naive": {
+        "sharpe": 1.4952,
+        "ann_return": 21.78,
+        "ann_vol": 14.56,
+        "max_dd": -14.97,
+        "monthly_cvar": -7.75
+      },
+      "sharpe_diff": 0.0803,
+      "bootstrap": {
+        "ci_lo": -0.1097,
+        "ci_hi": 0.2541,
+        "median": 0.0748,
+        "includes_zero": true
+      }
+    },
+    "rolling_2yr": {
+      "n_windows": 64,
+      "mean_improvement": 0.0411,
+      "median_improvement": 0.0222,
+      "pct_positive": 59.4,
+      "min": -0.2318,
+      "max": 0.2658,
+      "std": 0.1218
+    }
+  },
+  "D_transaction_costs": {
+    "0bps": {
+      "sew_sharpe": 1.2289,
+      "naive_sharpe": 1.0802,
+      "improvement": 0.1487,
+      "sew_return": 21.96,
+      "naive_return": 18.96
+    },
+    "5bps": {
+      "sew_sharpe": 1.2269,
+      "naive_sharpe": 1.0782,
+      "improvement": 0.1487,
+      "sew_return": 21.93,
+      "naive_return": 18.92
+    },
+    "10bps": {
+      "sew_sharpe": 1.2248,
+      "naive_sharpe": 1.0762,
+      "improvement": 0.1486,
+      "sew_return": 21.89,
+      "naive_return": 18.89
+    },
+    "15bps": {
+      "sew_sharpe": 1.2228,
+      "naive_sharpe": 1.0742,
+      "improvement": 0.1486,
+      "sew_return": 21.85,
+      "naive_return": 18.85
+    },
+    "20bps": {
+      "sew_sharpe": 1.2207,
+      "naive_sharpe": 1.0722,
+      "improvement": 0.1485,
+      "sew_return": 21.82,
+      "naive_return": 18.82
+    },
+    "30bps": {
+      "sew_sharpe": 1.2167,
+      "naive_sharpe": 1.0683,
+      "improvement": 0.1484,
+      "sew_return": 21.74,
+      "naive_return": 18.75
+    },
+    "50bps": {
+      "sew_sharpe": 1.2085,
+      "naive_sharpe": 1.0603,
+      "improvement": 0.1482,
+      "sew_return": 21.6,
+      "naive_return": 18.61
+    },
+    "india_realistic_cost_bps": 9.9,
+    "breakeven_cost_bps": ">50bps"
+  },
+  "E_alternatives": {
+    "naive_ew": {
+      "sharpe": 1.0742,
+      "ann_return": 18.85,
+      "ann_vol": 17.55,
+      "max_dd": -36.73,
+      "monthly_cvar": -11.56,
+      "avg_monthly_turnover": 4.95
+    },
+    "sector_ew": {
+      "sharpe": 1.2228,
+      "ann_return": 21.85,
+      "ann_vol": 17.87,
+      "max_dd": -36.2,
+      "monthly_cvar": -11.41,
+      "avg_monthly_turnover": 5.02
+    },
+    "market_cap": {
+      "sharpe": 1.0263,
+      "ann_return": 18.26,
+      "ann_vol": 17.79,
+      "max_dd": -36.69,
+      "monthly_cvar": -11.38,
+      "avg_monthly_turnover": 4.62
+    },
+    "inv_vol": {
+      "sharpe": 1.0647,
+      "ann_return": 18.09,
+      "ann_vol": 16.99,
+      "max_dd": -36.68,
+      "monthly_cvar": -11.53,
+      "avg_monthly_turnover": 10.34
+    },
+    "min_var": {
+      "sharpe": 0.892,
+      "ann_return": 14.36,
+      "ann_vol": 16.09,
+      "max_dd": -34.01,
+      "monthly_cvar": -13.58,
+      "avg_monthly_turnover": 97.87
+    }
+  },
+  "F_turnover": {
+    "avg_monthly_turnover_sew": 5.02,
+    "avg_monthly_turnover_naive": 4.95,
+    "excess_annual_turnover": 0.85,
+    "excess_annual_return_pct": 3.0,
+    "breakeven_cost_bps": 35430.4,
+    "avg_trades_per_rebalance_sew": 20,
+    "avg_trades_per_rebalance_naive": 20
+  },
+  "G_survivorship": {
+    "dropped_nifty50_stocks": [
+      "YESBANK.NS",
+      "ZEEL.NS",
+      "VEDL.NS",
+      "GAIL.NS",
+      "INFRATEL.NS",
+      "IBULHSGFIN.NS",
+      "UPL.NS"
+    ],
+    "available_replacements": [
+      "YESBANK.NS",
+      "ZEEL.NS",
+      "VEDL.NS",
+      "GAIL.NS",
+      "UPL.NS",
+      "JUBLFOOD.NS",
+      "MUTHOOTFIN.NS",
+      "BANDHANBNK.NS",
+      "PETRONET.NS",
+      "NMDC.NS",
+      "BIOCON.NS"
+    ],
+    "n_trials": 20,
+    "mean_improvement": 0.2038,
+    "median_improvement": 0.2118,
+    "pct_positive": 100.0,
+    "min": 0.0103,
+    "max": 0.3378,
+    "hypothesis_test": "SURVIVORSHIP MAY AFFECT DIFFERENCE"
+  },
+  "H_us_oos": {
+    "n_stocks": 9,
+    "n_days": 1789,
+    "n_sectors": 5,
+    "sew": {
+      "sharpe": 1.1725,
+      "ann_return": 19.78,
+      "ann_vol": 16.87,
+      "max_dd": -26.63,
+      "monthly_cvar": -11.98
+    },
+    "naive": {
+      "sharpe": 1.2765,
+      "ann_return": 26.32,
+      "ann_vol": 20.62,
+      "max_dd": -27.29,
+      "monthly_cvar": -13.94
+    },
+    "sharpe_diff": -0.104,
+    "bootstrap": {
+      "ci_lo": -0.3621,
+      "ci_hi": 0.2299,
+      "median": -0.0953,
+      "includes_zero": true
+    },
+    "sector_breakdown": {
+      "technology": [
+        "AAPL",
+        "GOOGL",
+        "MSFT",
+        "NVDA"
+      ],
+      "consumer_discretionary": [
+        "AMZN",
+        "COST"
+      ],
+      "healthcare": [
+        "JNJ"
+      ],
+      "consumer_staples": [
+        "KO"
+      ],
+      "financials": [
+        "BRK-B"
+      ]
+    }
+  }
+}

@@ -1,0 +1,372 @@
+[
+  {
+    "name": "12-1 momentum",
+    "market": "both",
+    "category": "price",
+    "hypothesis": "12-month return skipping the last month predicts continued outperformance",
+    "key_statistic": "US WF Sharpe 1.366 for 12-1 vs 1.332 to 1.378 for 2-1 to 9-1; bootstrap P(variant beats 12-1) 46 to 51%; 10-year L/S Sharpe 0.225",
+    "verdict": "approved",
+    "note": "In the composite. Lookback is a second-order effect; the tilt does not beat equal weight (10-year WF Sharpe 0.966 vs 1.011 for 1/N)",
+    "source": "data/research/momentum-lookback-study.md"
+  },
+  {
+    "name": "Vol-adjusted momentum",
+    "market": "both",
+    "category": "price",
+    "hypothesis": "12-month return divided by 63-day realized volatility ranks better than raw momentum",
+    "key_statistic": "L/S Sharpe -0.060 over 2021 to 2026 in the 9-stock universe",
+    "verdict": "approved",
+    "note": "In the composite; no standalone evidence that it adds value",
+    "source": "data/research/2026-04-02_factor_crowding.md"
+  },
+  {
+    "name": "RSI(14) mean reversion",
+    "market": "both",
+    "category": "price",
+    "hypothesis": "Oversold names (low RSI) outperform over the next month",
+    "key_statistic": "Crisis-regime mean-reversion tilt drove +16.86 pp alpha in the COVID 2020 replay; full stack indistinguishable from EW (v2: 1.247 vs 1.272)",
+    "verdict": "approved",
+    "note": "In the composite; weight 0.05 in risk_on rising to 0.25 in crisis; never tested standalone",
+    "source": "data/research/stress-test-results.md"
+  },
+  {
+    "name": "SMA 50/200 trend",
+    "market": "both",
+    "category": "price",
+    "hypothesis": "Price above its 50- and 200-day averages predicts continuation",
+    "key_statistic": "Cross-sectional correlation with 12-1 momentum 0.42; combined-model coefficient flips sign IS (+0.015) to OOS (-0.025)",
+    "verdict": "approved",
+    "note": "In the composite; overlaps with momentum and breadth; never tested standalone",
+    "source": "data/research/2026-04-01_breadth_multivariate.md"
+  },
+  {
+    "name": "Cross-asset macro",
+    "market": "both",
+    "category": "macro",
+    "hypothesis": "Beta to VIX, yields and oil (US) or rupee, oil and Nifty drawdown by sector (India) should tilt weights toward names that benefit from the macro state",
+    "key_statistic": "Regime detector as an allocation timer: India 0.435 vs 0.517 buy-and-hold Sharpe; US factor timing 1.220 vs 1.272 EW",
+    "verdict": "approved",
+    "note": "In the composite. Sub-signals are collinear beta tilts; tested only as part of the stack",
+    "source": "data/research/multi-asset-regime-timing.md"
+  },
+  {
+    "name": "HRP base weights and the full stack vs equal weight (1/N)",
+    "market": "us",
+    "category": "construction",
+    "hypothesis": "Hierarchical risk parity base weights, and the full signal and risk stack built on them, beat naive equal weight on the same names",
+    "key_statistic": "Full engine Sharpe 1.247 vs 1.272 for equal weight over 107 monthly periods, bootstrap 95% CI on the difference [-0.13, +0.19]; base weights alone in walk-forward: EW 1.293, inverse vol 1.236, ERC 1.272, HRP 1.243",
+    "verdict": "approved",
+    "note": "HRP retained as the base of the blend because it does no harm; neither the base weights nor the full stack is distinguishable from 1/N at N=9",
+    "source": "data/research/existential-experiment-v2.md; data/research/2026-04-02_portfolio_construction_comparison.md"
+  },
+  {
+    "name": "VIX term structure",
+    "market": "us",
+    "category": "volatility",
+    "hypothesis": "VIX/VIX3M backwardation predicts higher forward returns (contrarian)",
+    "key_statistic": "IS Spearman 0.198, OOS 0.176 (21d SPY); by year 2023 -0.02, 2026 to April -0.50; 0.74 correlation with VIX level",
+    "verdict": "conditional",
+    "note": "Not deployed. Implemented, then removed from the composite as zero-contribution",
+    "source": "data/research/2026-04-01_vix_term_structure.md"
+  },
+  {
+    "name": "Copper/gold ratio",
+    "market": "us",
+    "category": "macro",
+    "hypothesis": "Falling copper/gold momentum precedes equity gains when VIX is above 15 (contrarian)",
+    "key_statistic": "WF ICIR 0.355, p 0.0036 (Bonferroni over 14 families p 0.050); L/S Sharpe 0.98 net; crisis ICIR 1.29 on 16 periods",
+    "verdict": "conditional",
+    "note": "Not deployed. Implemented with regime gating, then removed as zero-contribution in the full stack",
+    "source": "data/research/2026-04-01_copper_gold_walk_forward.md"
+  },
+  {
+    "name": "India turn-of-month timing",
+    "market": "india",
+    "category": "calendar",
+    "hypothesis": "Rebalancing in the last 3 and first 3 trading days captures a turn-of-month premium",
+    "key_statistic": "8.26 bps/day spread, p 0.011 full sample, OOS p 0.013; fails Bonferroni (0.0033)",
+    "verdict": "conditional",
+    "note": "Operational timing rule only; no composite weight; not enforced in code",
+    "source": "data/research/2026-04-01_seasonality_signals.md"
+  },
+  {
+    "name": "US seasonality composite",
+    "market": "us",
+    "category": "calendar",
+    "hypothesis": "Turn-of-month, January, sell-in-May and OpEx-week effects add up to a timing overlay",
+    "key_statistic": "All p > 0.35; composite IC 0.02 (5d), -0.01 (21d)",
+    "verdict": "rejected",
+    "note": "",
+    "source": "data/research/2026-04-01_seasonality_signals.md"
+  },
+  {
+    "name": "Put/call ratio (proxies)",
+    "market": "us",
+    "category": "sentiment",
+    "hypothesis": "Extreme put/call readings are contrarian",
+    "key_statistic": "No IS significance (p 0.15 to 0.96); non-monotonic quintiles",
+    "verdict": "rejected",
+    "note": "CBOE series unavailable; VIX percentile and SKEW z-score proxies tested instead",
+    "source": "data/research/2026-04-01_put_call_ratio.md"
+  },
+  {
+    "name": "Insider transactions",
+    "market": "us",
+    "category": "flow",
+    "hypothesis": "Net insider buying predicts returns",
+    "key_statistic": "6 purchases in 801 transactions over 2 years; average per-ticker Spearman -0.02",
+    "verdict": "rejected",
+    "note": "Wrong universe and data source",
+    "source": "data/research/2026-04-01_insider_trading.md"
+  },
+  {
+    "name": "Credit spreads (HYG/LQD)",
+    "market": "us",
+    "category": "credit",
+    "hypothesis": "Widening spreads predict lower equity returns",
+    "key_statistic": "credit_ratio_z 21d IC: IS t -5.48, OOS t +0.59; 5 to 20% annual turnover cost",
+    "verdict": "rejected",
+    "note": "",
+    "source": "data/research/2026-04-01_credit_spreads.md"
+  },
+  {
+    "name": "Sector relative strength",
+    "market": "us",
+    "category": "cross-sectional",
+    "hypothesis": "Stocks in strong sectors outperform",
+    "key_statistic": "All 12 OOS correlations flip negative; no IS result survives Bonferroni; all rolling ICIR negative",
+    "verdict": "rejected",
+    "note": "",
+    "source": "data/research/2026-04-01_sector_relative_strength.md"
+  },
+  {
+    "name": "Breadth: share above 50-day SMA",
+    "market": "us",
+    "category": "breadth",
+    "hypothesis": "High breadth is contrarian bearish",
+    "key_statistic": "Raw ICIR -1.45; marginal OOS Spearman 0.00 to -0.03 after controlling for trend and RSI; VIF 4.20",
+    "verdict": "rejected",
+    "note": "Redundant with trend and RSI",
+    "source": "data/research/2026-04-01_breadth_multivariate.md"
+  },
+  {
+    "name": "Breadth: 21-day RSP/SPY momentum",
+    "market": "us",
+    "category": "breadth",
+    "hypothesis": "Narrowing breadth predicts higher returns",
+    "key_statistic": "delta R2 0.0044 IS vs 0.1463 OOS; overlap-adjusted OOS t about 1.84",
+    "verdict": "rejected",
+    "note": "33x IS-to-OOS increase judged a regime artifact",
+    "source": "data/research/2026-04-01_breadth_multivariate.md"
+  },
+  {
+    "name": "Options skew (CBOE SKEW)",
+    "market": "us",
+    "category": "volatility",
+    "hypothesis": "Elevated skew is contrarian bullish",
+    "key_statistic": "skew_pctile Spearman +0.075 IS, -0.252 OOS; 6.3% annual turnover cost at 5 bps",
+    "verdict": "rejected",
+    "note": "",
+    "source": "data/research/2026-04-01_options_skew.md"
+  },
+  {
+    "name": "Short interest",
+    "market": "us",
+    "category": "flow",
+    "hypothesis": "High short interest predicts squeezes or informed bearishness",
+    "key_statistic": "n=9 snapshot only; volume proxy p > 0.2 everywhere",
+    "verdict": "rejected",
+    "note": "No historical series available",
+    "source": "data/research/2026-04-01_short_interest.md"
+  },
+  {
+    "name": "Variance risk premium",
+    "market": "us",
+    "category": "volatility",
+    "hypothesis": "High implied-minus-realized volatility predicts positive returns",
+    "key_statistic": "21d IC IS +0.067 (p 0.047), OOS -0.078; IC -0.38 when VIX < 15",
+    "verdict": "rejected",
+    "note": "",
+    "source": "data/research/2026-04-01_variance_risk_premium.md"
+  },
+  {
+    "name": "Bond-equity correlation regime",
+    "market": "us",
+    "category": "macro",
+    "hypothesis": "SPY/TLT correlation z-score predicts returns",
+    "key_statistic": "21d IC IS +0.101, OOS -0.136; both significant, opposite signs",
+    "verdict": "rejected",
+    "note": "",
+    "source": "data/research/2026-04-01_bond_equity_correlation.md"
+  },
+  {
+    "name": "Earnings revision (analyst actions)",
+    "market": "us",
+    "category": "fundamental",
+    "hypothesis": "Price-target and rating revisions persist",
+    "key_statistic": "pt_rev_60d 21d IC IS +0.086, OOS -0.086; action_60d OOS IC 0.100 never walk-forward tested",
+    "verdict": "rejected",
+    "note": "",
+    "source": "data/research/2026-04-01_earnings_revision_momentum.md"
+  },
+  {
+    "name": "Analyst estimate dispersion",
+    "market": "us",
+    "category": "fundamental",
+    "hypothesis": "Dispersion is a risk premium or a quality flag",
+    "key_statistic": "Single cross-section, n=9; dispersion vs 3-month return rho -0.28, p 0.46",
+    "verdict": "rejected",
+    "note": "Cannot be backtested",
+    "source": "data/research/2026-04-01_analyst_estimate_dispersion.md"
+  },
+  {
+    "name": "Earnings surprise momentum (PEAD)",
+    "market": "both",
+    "category": "fundamental",
+    "hypothesis": "Post-earnings-announcement drift persists in mega-caps",
+    "key_statistic": "Weight 0.00 in all regimes after walk-forward gave zero incremental alpha",
+    "verdict": "rejected",
+    "note": "Removed from the composite; yfinance surprise data sparse for mega-caps",
+    "source": "quantshield/config.py"
+  },
+  {
+    "name": "INR currency momentum",
+    "market": "india",
+    "category": "fx",
+    "hypothesis": "Rupee weakness helps IT exporters relative to importers",
+    "key_statistic": "usdinr_z_63d 21d Spearman +0.135 IS, -0.219 OOS; incremental IC after UUP -0.027 (p 0.37)",
+    "verdict": "rejected",
+    "note": "",
+    "source": "data/research/2026-04-01_currency_momentum_inr.md"
+  },
+  {
+    "name": "FII/DII flow momentum (INDA proxies)",
+    "market": "india",
+    "category": "flow",
+    "hypothesis": "Foreign flow momentum predicts Nifty",
+    "key_statistic": "Direct flow: IS IC +0.098, OOS -0.159; INDA/EEM 20d: OOS IC 0.242 but rolling ICIR -0.06; deep dive 4 of 27 tests at 10%, 2.7 expected by chance",
+    "verdict": "rejected",
+    "note": "Never walk-forward validated; not deployed",
+    "source": "data/research/2026-04-01_fii_dii_flow_momentum.md"
+  },
+  {
+    "name": "HMM regime detection",
+    "market": "us",
+    "category": "regime",
+    "hypothesis": "A Gaussian HMM detects regimes earlier than VIX thresholds",
+    "key_statistic": "3-state model degenerate (risk_on and risk_off alternate daily); 156.5 vs 22.8 transitions per year; WF 179.0% vs 177.1% for the heuristic",
+    "verdict": "rejected",
+    "note": "Research study only; removed from production",
+    "source": "data/research/2026-04-01_hmm_regime_detection.md"
+  },
+  {
+    "name": "MOVE/VIX divergence",
+    "market": "us",
+    "category": "volatility",
+    "hypothesis": "Bond-equity volatility divergence precedes corrections",
+    "key_statistic": "IC -0.017 (5d, p 0.37), +0.007 (21d, p 0.71)",
+    "verdict": "rejected",
+    "note": "",
+    "source": "data/research/2026-04-02_move_vix_divergence.md"
+  },
+  {
+    "name": "Momentum lookback variants (2-1 to 9-1)",
+    "market": "both",
+    "category": "price",
+    "hypothesis": "Shorter lookbacks beat 12-1 in concentrated portfolios",
+    "key_statistic": "US: no variant beats 12-1 (P 46 to 51%); India: 12-1 best (WF Sharpe 1.232); 5-year 3-1 L/S 0.864 did not reproduce over 10 years (0.158)",
+    "verdict": "rejected",
+    "note": "",
+    "source": "data/research/momentum-lookback-study.md"
+  },
+  {
+    "name": "Sector equal weight",
+    "market": "both",
+    "category": "construction",
+    "hypothesis": "Equal weight across sectors beats naive equal weight",
+    "key_statistic": "India WF +0.066 Sharpe, CI [-0.121, +0.218]; random sector maps -0.02 to +0.02; US -0.104",
+    "verdict": "rejected",
+    "note": "Acceptable zero-cost default; not an alpha source; the engine uses a sector cap instead",
+    "source": "data/research/sector-ew-deep-validation.md"
+  },
+  {
+    "name": "Vol targeting (15% US, 20% India)",
+    "market": "both",
+    "category": "overlay",
+    "hypothesis": "Scaling exposure to a volatility target improves risk-adjusted return",
+    "key_statistic": "EW plus overlay vs EW: Sharpe 1.250 vs 1.272 (US), 1.13 vs 1.20 (India); CIs include zero; about 75% average exposure",
+    "verdict": "rejected",
+    "note": "Removed from the engine",
+    "source": "data/research/existential-experiment-v2.md"
+  },
+  {
+    "name": "Factor timing (regime-based cash allocation)",
+    "market": "us",
+    "category": "timing",
+    "hypothesis": "Cut equity to 60% in risk_off and 30% in crisis",
+    "key_statistic": "Sharpe 1.220 vs 1.272 EW; return -5.96 pp; recovery 389 vs 296 days",
+    "verdict": "rejected",
+    "note": "",
+    "source": "data/research/signal-rethink.md"
+  },
+  {
+    "name": "Sector ETF universe and sector momentum",
+    "market": "us",
+    "category": "universe",
+    "hypothesis": "10 sector ETFs give a better base and sector momentum works",
+    "key_statistic": "Sector EW Sharpe 0.654 vs 1.272; sector momentum IC 0.022 (p 0.64)",
+    "verdict": "rejected",
+    "note": "The stock universe is hindsight-selected; the ETF figure is the survivorship-free comparison",
+    "source": "data/research/signal-rethink.md"
+  },
+  {
+    "name": "Crash-buying overlay (leverage or cash buffer)",
+    "market": "us",
+    "category": "timing",
+    "hypothesis": "Add exposure when VIX > 30",
+    "key_statistic": "Sharpe 1.179 (leverage) and 1.206 (cash buffer) vs 1.272; recovery 75 days vs 296",
+    "verdict": "rejected",
+    "note": "Cash-buffer variant is a risk-preference trade-off, not alpha",
+    "source": "data/research/signal-rethink.md"
+  },
+  {
+    "name": "Country ETF momentum rotation",
+    "market": "both",
+    "category": "universe",
+    "hypothesis": "12-month momentum across 6 country ETFs",
+    "key_statistic": "Full-sample Sharpe 0.993 vs WF 0.583; bootstrap difference vs EW CI [-0.67, +1.49]",
+    "verdict": "rejected",
+    "note": "",
+    "source": "data/research/country-rotation-study.md"
+  },
+  {
+    "name": "NSE midcap momentum",
+    "market": "india",
+    "category": "price",
+    "hypothesis": "Momentum works better on less efficient midcaps",
+    "key_statistic": "EW Sharpe 1.214 vs best momentum 0.964; all bootstrap CIs include zero; removing the top 3 names cuts EW by 0.19",
+    "verdict": "rejected",
+    "note": "",
+    "source": "data/research/midcap-momentum-study.md"
+  },
+  {
+    "name": "Multi-asset regime timing (equity, gold, liquid)",
+    "market": "india",
+    "category": "timing",
+    "hypothesis": "The regime detector times equity vs gold vs cash",
+    "key_statistic": "Simple detector 0.587 vs 0.517 buy-and-hold, CI [-0.31, +0.45]; full detector 0.435; crisis days followed by +1.16% mean 5-day return",
+    "verdict": "rejected",
+    "note": "",
+    "source": "data/research/multi-asset-regime-timing.md"
+  },
+  {
+    "name": "Contribution timing on VIX spikes",
+    "market": "both",
+    "category": "timing",
+    "hypothesis": "Double contributions when VIX > 30 or India VIX > 25",
+    "key_statistic": "US: +0.2% over 30 years vs an equal-capital comparison; India: +10.1% over 18.2 years, two episodes",
+    "verdict": "rejected",
+    "note": "Not implemented; the India result rests on 2008 and 2020",
+    "source": "data/research/dca-crash-buy-timing.md"
+  }
+]
